@@ -1,22 +1,22 @@
 import twint
-import pandas as pd
+from datetime import date
 #import nest_asyncio
 
 #nest_asyncio.apply()
+today = date.today()
 
 c = twint.Config()
-#c.Limit = 
-c.Search = "#ecofriendly" or "#zerowaste" or "#plasticfree"
-#c.Username = "sfbart"
-c.Since = "2021-1-1"
-#c.To = "2020-1-1"
-c.until= '2022-01-1'
+c.Lang = "en"
+# c.Search = "#foodwaste" or "#zerowaste" or "#sustainability" or "#ecofriendly"
+# c.Limit = 20
+c.Username = "edward09690585"
+c.Since = "2017-1-1"
+c.until= today.strftime("%b-%d-%Y")
+
 c.Store_csv = True
 c.Custom_csv = ["date", "time", "username", "tweet", "link", "likes", "retweets", "replies", "mentions", "hashtags"]
 c.Pandas = True
 c.Output = "eco1friendly.csv"
-
-#dataframes.append(df)
 
 twint.run.Search(c)
 
